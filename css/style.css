@@ -854,6 +854,13 @@ a {
 .body-wrap {
   margin-bottom: 80px;
 }
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: bold;
+}
 .article {
   margin: 30px;
   position: relative;
@@ -1191,6 +1198,11 @@ a {
 }
 #article-nav #article-nav-older {
   float: right;
+}
+.toc,
+.toc-item,
+.toc-child {
+  list-style-type: none;
 }
 @-moz-keyframes cd-bounce-1 {
   0% {
