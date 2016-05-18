@@ -36,7 +36,7 @@ site2/lib/image.func.php
 
 
 site2/lib/string.func.ph">
-<meta property="og:updated_time" content="2016-05-18T15:20:41.970Z">
+<meta property="og:updated_time" content="2016-05-18T15:59:37.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP通过GD库制作简单验证码">
 <meta name="twitter:description" content="PHP通过GD库制作简单验证码该项目的测试开发环境为win10 + Apache2.4.18 + PHP5.5.30
@@ -260,8 +260,11 @@ site2/lib/string.func.ph">
 <li>site2/lib/<strong>image.func.php</strong></li>
 </ul>
 <ul>
-<li>site2/lib/<strong>string.func.php</strong></li>
-<li>site2/fonts/<strong>STXINGKA.TTF</strong></li>
+<li><p>site2/lib/<strong>string.func.php</strong></p>
+</li>
+<li><p>site2/fonts/<strong>STXINGKA.TTF</strong></p>
+<a id="more"></a>
+</li>
 </ul>
 <h2 id="2-生成字符"><a href="#2-生成字符" class="headerlink" title="2. 生成字符"></a>2. 生成字符</h2><p>在 <strong>string.func.php</strong> 中定义生成字符的方法：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[PHP]</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">buildRandomString</span><span class="params">($type=<span class="number">1</span>,$length=<span class="number">4</span>)</span></span>&#123;  <span class="comment">//传入type，length两个参数</span></span><br><span class="line">  <span class="comment">//设置3种生成字符的方法</span></span><br><span class="line">  <span class="keyword">if</span> ($type == <span class="number">1</span>) &#123;</span><br><span class="line">    $chars = join ( <span class="string">""</span>, range ( <span class="number">0</span>, <span class="number">9</span> ) );</span><br><span class="line">  &#125; <span class="keyword">elseif</span> ($type == <span class="number">2</span>) &#123;</span><br><span class="line">    $chars = join ( <span class="string">""</span>, array_merge ( range ( <span class="string">"a"</span>, <span class="string">"z"</span> ), range ( <span class="string">"A"</span>, <span class="string">"Z"</span> ) ) );</span><br><span class="line">  &#125; <span class="keyword">elseif</span> ($type == <span class="number">3</span>) &#123;</span><br><span class="line">    $chars = join ( <span class="string">""</span>, array_merge ( range ( <span class="string">"a"</span>, <span class="string">"z"</span> ), range ( <span class="string">"A"</span>, <span class="string">"Z"</span> ), range ( <span class="number">0</span>, <span class="number">9</span> ) ) );</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//验证码长度不能大于字符串长度</span></span><br><span class="line">  <span class="keyword">if</span> ($length &gt; strlen ( $chars )) &#123;</span><br><span class="line">    <span class="keyword">exit</span> ( <span class="string">"字符串长度不够"</span> );</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//随机打乱所有字符</span></span><br><span class="line">  $chars = str_shuffle ( $chars );</span><br><span class="line">  <span class="comment">//从字符串中的第一个字符开始返回，长度为length</span></span><br><span class="line">  <span class="keyword">return</span> substr ( $chars, <span class="number">0</span>, $length );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
