@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Jquery-validate(表单验证)插件的用法 | Tianzhen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Jquery-validate(表单验证)插件的用法Jquery-validate官网地址：https://jqueryvalidation.org/
+示例版本：jquery-validate-1.13.1
+[TOC]
+1. 引入插件在html文件中引入jquery框架和jquery-validate插件
+12345678[html]	&amp;lt;head&amp;gt;  &amp;lt;meta charset=">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jquery-validate(表单验证)插件的用法">
+<meta property="og:url" content="http://mecoepcoo.github.io/posts/article/20160426-Jquery-validate(表单验证)插件的用法.html">
+<meta property="og:site_name" content="Tianzhen">
+<meta property="og:description" content="Jquery-validate(表单验证)插件的用法Jquery-validate官网地址：https://jqueryvalidation.org/
+示例版本：jquery-validate-1.13.1
+[TOC]
+1. 引入插件在html文件中引入jquery框架和jquery-validate插件
+12345678[html]	&amp;lt;head&amp;gt;  &amp;lt;meta charset=">
+<meta property="og:updated_time" content="2016-05-19T04:15:11.029Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jquery-validate(表单验证)插件的用法">
+<meta name="twitter:description" content="Jquery-validate(表单验证)插件的用法Jquery-validate官网地址：https://jqueryvalidation.org/
+示例版本：jquery-validate-1.13.1
+[TOC]
+1. 引入插件在html文件中引入jquery框架和jquery-validate插件
+12345678[html]	&amp;lt;head&amp;gt;  &amp;lt;meta charset=">
+  
+    <link rel="alternative" href="/atom.xml" title="Tianzhen" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Tianzhen</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">心者，栖神之舍；神者，知识之本；思者，神识之妙用也。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/mecoepcoo" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/mecoepcoo/home" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">心者，栖神之舍；神者，知识之本；思者，神识之妙用也。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Tianzhen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Tianzhen</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">心者，栖神之舍；神者，知识之本；思者，神识之妙用也。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/mecoepcoo" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/mecoepcoo/home" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Jquery-validate(表单验证)插件的用法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/article/20160426-Jquery-validate(表单验证)插件的用法.html" class="article-date">
+  	<time datetime="2016-04-26T07:56:22.000Z" itemprop="datePublished">Apr 26, 2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Jquery-validate(表单验证)插件的用法
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Jquery-validate-表单验证-插件的用法"><span class="toc-text">Jquery-validate(表单验证)插件的用法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-引入插件"><span class="toc-text">1. 引入插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-使用默认验证"><span class="toc-text">2. 使用默认验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-remote方法"><span class="toc-text">3. remote方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#remote的配置"><span class="toc-text">remote的配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-基本验证方法"><span class="toc-text">4. 基本验证方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-高级API"><span class="toc-text">5. 高级API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-valid方法："><span class="toc-text">5.1 valid方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-rules方法："><span class="toc-text">5.2 rules方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-validator对象方法"><span class="toc-text">5.3 validator对象方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-validator对象静态方法"><span class="toc-text">5.4 validator对象静态方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-validate-方法配置项"><span class="toc-text">6. validate()方法配置项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-选择器扩展"><span class="toc-text">7. 选择器扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-自定义验证方法"><span class="toc-text">8. 自定义验证方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-安全性"><span class="toc-text">9. 安全性</span></a></li></ol></li></ol>
+</div>
+
+        <h1 id="Jquery-validate-表单验证-插件的用法"><a href="#Jquery-validate-表单验证-插件的用法" class="headerlink" title="Jquery-validate(表单验证)插件的用法"></a>Jquery-validate(表单验证)插件的用法</h1><p>Jquery-validate官网地址：<a href="https://jqueryvalidation.org/" target="_blank" rel="external">https://jqueryvalidation.org/</a></p>
+<p>示例版本：jquery-validate-1.13.1</p>
+<p>[TOC]</p>
+<h2 id="1-引入插件"><a href="#1-引入插件" class="headerlink" title="1. 引入插件"></a>1. 引入插件</h2><p>在html文件中引入jquery框架和jquery-validate插件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[html]	</span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>表单验证<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"__PUBLIC__/js/jquery-1.9.0.min.js"</span><span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"__PUBLIC__/js/jquery.validate-1.13.1.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><br><span class="line">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-使用默认验证"><a href="#2-使用默认验证" class="headerlink" title="2. 使用默认验证"></a>2. 使用默认验证</h2><p>html代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[html]</span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">name</span>=<span class="string">"register"</span> <span class="attr">id</span>=<span class="string">"register"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">id</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">placeholder</span>=<span class="string">"name"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">id</span>=<span class="string">"password"</span> <span class="attr">placeholder</span>=<span class="string">"password"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"OK"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>js验证代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">[Javascript]</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">      $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $(<span class="string">"#register"</span>).validate(&#123;</span><br><span class="line">          rules:&#123;</span><br><span class="line">            username: &#123;</span><br><span class="line">              required: <span class="literal">true</span>,</span><br><span class="line">              minlength:<span class="number">2</span>,</span><br><span class="line">              maxlength:<span class="number">6</span></span><br><span class="line">            &#125;,</span><br><span class="line">            password: &#123;</span><br><span class="line">              required:<span class="literal">true</span>,</span><br><span class="line">              minlength:<span class="number">3</span>,</span><br><span class="line">              maxlength:<span class="number">8</span></span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">          messages:&#123;</span><br><span class="line">            username: &#123;</span><br><span class="line">              required: <span class="string">"用户名必须填写"</span>,</span><br><span class="line">              minlength: <span class="string">"用户名最小为两位"</span>,</span><br><span class="line">              maxlength: <span class="string">"用户名最大为六位"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            password: &#123;</span><br><span class="line">              required:<span class="string">"密码必须填写"</span>,</span><br><span class="line">              minlength:<span class="string">"密码最小为三位"</span>,</span><br><span class="line">              maxlength:<span class="string">"密码最大为十位"</span></span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>rules中的“username”， “password”是name属性的值，messages是验证失败的错误提示，可根据实际情况修改。</p>
+</blockquote>
+<h2 id="3-remote方法"><a href="#3-remote方法" class="headerlink" title="3. remote方法"></a>3. remote方法</h2><p>用于远程校验，例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Javascript]</span><br><span class="line">rules:&#123;</span><br><span class="line">  username: &#123;</span><br><span class="line">  required: <span class="literal">true</span>,</span><br><span class="line">  minlength:<span class="number">2</span>,</span><br><span class="line">  maxlength:<span class="number">6</span>,</span><br><span class="line">  remote:<span class="string">"remote.json"</span> </span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+<p>则提交后，会向”remote.json”提交一个get请求</p>
+<h3 id="remote的配置"><a href="#remote的配置" class="headerlink" title="remote的配置"></a>remote的配置</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Javascript]</span><br><span class="line">remote:&#123;</span><br><span class="line">  url:<span class="string">"remote.json"</span>,</span><br><span class="line">  type:<span class="string">"post"</span>,<span class="comment">//设置请求方式为post（默认为get）</span></span><br><span class="line">  data:&#123;</span><br><span class="line">    loginTime:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> + <span class="keyword">new</span> <span class="built_in">Date</span>;<span class="comment">//返回当前时间</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-基本验证方法"><a href="#4-基本验证方法" class="headerlink" title="4. 基本验证方法"></a>4. 基本验证方法</h2><ul>
+<li><p><strong>required</strong>—必填</p>
+</li>
+<li><p><strong>remote</strong>—远程校验</p>
+</li>
+<li><strong>minlength</strong>—最小长度，<strong>maxlength</strong>—最大长度， <strong>rangelength</strong>—长度范围–[2, 10]</li>
+<li><strong>min</strong>—最小值， <strong>max</strong>—最大值， <strong>range</strong>—取值范围–[2, 10]</li>
+<li><strong>email</strong>—email格式， <strong>url</strong>—url格式(<em>必须带有http或https</em>)</li>
+<li><strong>date</strong>—日期格式（<em>日月年格式无效</em>）， <strong>dateISO</strong>—ISO日期（<em>格式为：年月日</em>）</li>
+<li><strong>number</strong>—数字， <strong>digits</strong>—整数， <strong>equalTo</strong>—与另一个元素值相等（<em>使用选择器</em>）</li>
+</ul>
+<h2 id="5-高级API"><a href="#5-高级API" class="headerlink" title="5. 高级API"></a>5. 高级API</h2><h3 id="5-1-valid方法："><a href="#5-1-valid方法：" class="headerlink" title="5.1 valid方法："></a>5.1 valid方法：</h3><p>  用于检查表单是否有效，返回bool值，例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Javascript]</span><br><span class="line">$(<span class="string">"#check"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert($(<span class="string">"#register"</span>).valid()?<span class="string">"正确"</span>:<span class="string">"错误"</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="5-2-rules方法："><a href="#5-2-rules方法：" class="headerlink" title="5.2 rules方法："></a>5.2 rules方法：</h3><p>  rules（”add”, rules）向表单元素增加校验规则</p>
+<p>  rules（”remove”,rules）删除表单元素校验规则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Javascript]</span><br><span class="line">$(<span class="string">"#username"</span>).rules(<span class="string">"add"</span>,&#123;minlength:<span class="number">2</span>, maxlength:<span class="number">10</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="5-3-validator对象方法"><a href="#5-3-validator对象方法" class="headerlink" title="5.3 validator对象方法"></a>5.3 validator对象方法</h3><ul>
+<li><p>validate方法会返回一个Validator对象，这个对象有很多方法：</p>
+<ul>
+<li><strong>Validator.form()</strong> 验证表单是否有效，返回bool</li>
+<li><strong>Validator.element(element)</strong> 验证某个元素是否有效，返回bool</li>
+<li><strong>Validator.resetForm()</strong> 把表单恢复到验证前原来的状态</li>
+<li><strong>Validator.showErrors(errors)</strong> 针对某个元素显示特定的错误信息</li>
+<li><strong>Validator.numberOfInvalids()</strong> 返回无效的元素数量</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-4-validator对象静态方法"><a href="#5-4-validator对象静态方法" class="headerlink" title="5.4 validator对象静态方法"></a>5.4 validator对象静态方法</h3><ul>
+<li>validator.format() 格式化字符串，例：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Javascript]</span><br><span class="line"><span class="keyword">var</span> template = $.validator.format(<span class="string">"&#123;0&#125; - &#123;1&#125; - &#123;2&#125;"</span>);</span><br><span class="line"></span><br><span class="line">template(<span class="string">"一"</span>, <span class="string">"二"</span>, <span class="string">"三"</span>)</span><br></pre></td></tr></table></figure>
+<p>  则输出为”一 - 二 - 三”。</p>
+<ul>
+<li><p>validator.setDefaults(options) 用于修改默认设置，例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Javascript]</span><br><span class="line">$.validator.setDefaults(&#123;</span><br><span class="line">  debug:<span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>则所有的参数都有debug:true</p>
+</li>
+<li><p>validator.addClassRules(name,rules) 为某些包含名为name的class增加组合验证类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[Javascript]</span><br><span class="line">$.validator.addClassRules(&#123;</span><br><span class="line">  txt:&#123;</span><br><span class="line">    required:<span class="literal">true</span>,</span><br><span class="line">    minlength:<span class="number">5</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="6-validate-方法配置项"><a href="#6-validate-方法配置项" class="headerlink" title="6. validate()方法配置项"></a>6. validate()方法配置项</h2><ul>
+<li><p><strong>submitHandler</strong> 通过验证后运行的函数，可以加上表单提交的方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Javascript]</span><br><span class="line">submitHandler:<span class="function"><span class="keyword">function</span>(<span class="params">form</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log($(form).serialize());<span class="comment">//在控制台展示从表单中搜集到的信息</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>invalidHandler</strong> 无效表单提交后运行的函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Javascript]</span><br><span class="line">invalidHandler:<span class="function"><span class="keyword">function</span>(<span class="params">event, validator</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"错误数："</span> + validator.numberOfInvalids);<span class="comment">//在控制台展示错误数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该方法可以用以下方式触发：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Javascript]</span><br><span class="line">$(<span class="string">"#demoForm"</span>).on(<span class="string">"invalid-form"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event, validator</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"错误数："</span> + validator.numberOfInvalids);<span class="comment">//在控制台展示错误数</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>ignore</strong> 对某些元素不进行验证</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Javascript]</span><br><span class="line">ignore: <span class="string">"#username"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>ignore的默认值为”:hidden”，即 <code>ignore</code> 默认不对隐藏的元素进行校验。</p>
+</blockquote>
+</li>
+<li><p><strong>rules</strong> 定义校验规则</p>
+<p>  rule中可以使用depands来使某个设置在特定条件才生效，例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Javascript]</span><br><span class="line">rules:&#123;</span><br><span class="line">  username:&#123;</span><br><span class="line">    required:&#123;</span><br><span class="line">      depends:<span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> $(<span class="string">"#password"</span>).is(<span class="string">":filled"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>则在密码被填写时才校验</p>
+</li>
+</ul>
+<ul>
+<li><strong>messages</strong> 定义提示信息<br>参照 <code>2.默认验证</code></li>
+<li><strong>groups</strong> 对一组元素的验证，用一个错误提示，用<strong>errorPlacement</strong> 控制把出错信息放在哪里</li>
+</ul>
+<p>其他方法：</p>
+<ul>
+<li><strong>onsubmit</strong> 是否在提交时验证</li>
+</ul>
+<ul>
+<li><strong>onfocusout</strong> 是否在获取焦点时验证</li>
+<li><strong>onkeyup</strong> 是否在敲击键盘时验证</li>
+<li><strong>onclick</strong> 是否在鼠标点击时验证，一般用于<code>checkbox</code>或者<code>radio</code></li>
+<li><strong>focusInvalid</strong> 提交表单后，未通过验证的表单是否会获得焦点</li>
+<li><strong>focusCleanup</strong> 当未通过验证的元素获得焦点时，是否移除错误提示</li>
+<li><strong>errorClass</strong> 指定错误提示的css类名，可以自定义错误提示的样式</li>
+<li><strong>validClass</strong> 指定验证通过的css类名</li>
+<li><strong>errorElement</strong> 使用什么标签标记错误</li>
+<li><strong>wrapper</strong> 使用什么标签把上边的errorElement包裹起来</li>
+<li><strong>errorLabelContainer</strong> 把错误信息统一放在一个容器里</li>
+<li><strong>errorContainer</strong> 显示或者隐藏验证信息，可以自动实现有错误信息出现时把容器属性变为显示，无错误时隐藏</li>
+<li><strong>showErrors</strong> 可以显示总共有多少个未通过验证的元素</li>
+<li><strong>errorPlacement</strong>  自定义错误信息放到哪里</li>
+<li><strong>success</strong> 要验证的元素通过验证后执行的动作</li>
+<li><strong>highlight</strong> 可以给未通过验证的元素加效果</li>
+<li><strong>unhighlight</strong> 去除未通过验证的元素的效果，一般可以和highlight同时使用</li>
+</ul>
+<h2 id="7-选择器扩展"><a href="#7-选择器扩展" class="headerlink" title="7. 选择器扩展"></a>7. 选择器扩展</h2><ul>
+<li>:<strong>blank</strong> 选择所有值为空的元素</li>
+<li>:<strong>filled</strong> 选择所有值不为空的元素</li>
+<li>:<strong>unchecked</strong> 选择所有没有被选中的元素</li>
+</ul>
+<h2 id="8-自定义验证方法"><a href="#8-自定义验证方法" class="headerlink" title="8. 自定义验证方法"></a>8. 自定义验证方法</h2><ul>
+<li><p><strong>jQuery.validator.addMethod( name, method [ , message ] )</strong></p>
+<p>name : 方法名称</p>
+<p>method : function(value, element, params) 方法逻辑</p>
+<p>message : 提示消息</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[Javascript]</span><br><span class="line">$.validator.addMethod(<span class="string">"postcode"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">value, element, parames</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> postcode = <span class="regexp">/^[0-9]&#123;6&#125;$/</span>;<span class="comment">//0-9六位</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.optional(element) || (postcode.test(value));<span class="comment">//符合则验证通过，前半段为允许空（空值也返回true）</span></span><br><span class="line">&#125;,<span class="string">"请填写正确的邮编！"</span>);</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<ul>
+<li><strong>additonal-methods.js</strong> 包含了许多扩展验证方法，使用时可参考</li>
+</ul>
+<h2 id="9-安全性"><a href="#9-安全性" class="headerlink" title="9. 安全性"></a>9. 安全性</h2><p>不要相信任何客户端输入，任何提交必须在前端和服务器端做两次验证！</p>
+<blockquote>
+<p>April 26, 2016 By 天真小兮兮</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Jquery-validate(表单验证)插件的用法" data-title="Jquery-validate(表单验证)插件的用法" data-url="http://mecoepcoo.github.io/posts/article/20160426-Jquery-validate(表单验证)插件的用法.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"tianzhenblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Tianzhen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?80c81272401291aa717e86f05952c919";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  </div>
+</body>
+</html>
