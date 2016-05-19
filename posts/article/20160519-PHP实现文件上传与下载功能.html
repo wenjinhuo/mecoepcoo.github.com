@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>PHP实现文件上传与下载功能 | Tianzhen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="PHP实现文件上传与下载功能本文介绍用php实现文件上传和下载的方法。
+[TOC]
+1. 初步实现上传1.1 客户端配置建立 upload.php ：
+12345678910111213141516[html]&amp;lt;!doctype html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;  &amp;lt;title&amp;gt;test&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP实现文件上传与下载功能">
+<meta property="og:url" content="http://mecoepcoo.github.io/posts/article/20160519-PHP实现文件上传与下载功能.html">
+<meta property="og:site_name" content="Tianzhen">
+<meta property="og:description" content="PHP实现文件上传与下载功能本文介绍用php实现文件上传和下载的方法。
+[TOC]
+1. 初步实现上传1.1 客户端配置建立 upload.php ：
+12345678910111213141516[html]&amp;lt;!doctype html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;  &amp;lt;title&amp;gt;test&amp;">
+<meta property="og:updated_time" content="2016-05-19T15:22:01.396Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP实现文件上传与下载功能">
+<meta name="twitter:description" content="PHP实现文件上传与下载功能本文介绍用php实现文件上传和下载的方法。
+[TOC]
+1. 初步实现上传1.1 客户端配置建立 upload.php ：
+12345678910111213141516[html]&amp;lt;!doctype html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;  &amp;lt;title&amp;gt;test&amp;">
+  
+    <link rel="alternative" href="/atom.xml" title="Tianzhen" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Tianzhen</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">心者，栖神之舍；神者，知识之本；思者，神识之妙用也。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术/">技术宅</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/mecoepcoo" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/mecoepcoo/home" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/thinkphp/" style="font-size: 10px;">thinkphp</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/后台/" style="font-size: 15px;">后台</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">心者，栖神之舍；神者，知识之本；思者，神识之妙用也。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Tianzhen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Tianzhen</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">心者，栖神之舍；神者，知识之本；思者，神识之妙用也。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术/">技术宅</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/mecoepcoo" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/mecoepcoo/home" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-PHP实现文件上传与下载功能" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/article/20160519-PHP实现文件上传与下载功能.html" class="article-date">
+  	<time datetime="2016-05-19T06:00:02.000Z" itemprop="datePublished">May 19, 2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP实现文件上传与下载功能
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后台/">后台</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PHP实现文件上传与下载功能"><span class="toc-text">PHP实现文件上传与下载功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-初步实现上传"><span class="toc-text">1. 初步实现上传</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-客户端配置"><span class="toc-text">1.1 客户端配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-服务器端配置"><span class="toc-text">1.2 服务器端配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-上传函数的封装"><span class="toc-text">2. 上传函数的封装</span></a></li></ol></li></ol>
+</div>
+
+        <h1 id="PHP实现文件上传与下载功能"><a href="#PHP实现文件上传与下载功能" class="headerlink" title="PHP实现文件上传与下载功能"></a>PHP实现文件上传与下载功能</h1><p>本文介绍用php实现文件上传和下载的方法。</p>
+<p>[TOC]</p>
+<h2 id="1-初步实现上传"><a href="#1-初步实现上传" class="headerlink" title="1. 初步实现上传"></a>1. 初步实现上传</h2><h3 id="1-1-客户端配置"><a href="#1-1-客户端配置" class="headerlink" title="1.1 客户端配置"></a>1.1 客户端配置</h3><p>建立 <strong>upload.php</strong> ：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[html]</span><br><span class="line"><span class="meta">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--此处只能使用post方法--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"doUploadAction.php"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>选择要上传的文件<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"uploadFile"</span>/&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"点击上传"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>建立 <strong>doUploadAction.php</strong> ：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"content-type:text/html;charset=utf-8"</span>);</span><br><span class="line"><span class="comment">//$_FILES: 文件上传变量</span></span><br><span class="line">$fileInfo=$_FILES[<span class="string">'uploadFile'</span>];</span><br><span class="line">$filename=$fileInfo[<span class="string">'name'</span>];</span><br><span class="line">$type=$fileInfo[<span class="string">'type'</span>];</span><br><span class="line">$tmp_name=$fileInfo[<span class="string">'tmp_name'</span>];</span><br><span class="line">$size=$fileInfo[<span class="string">'size'</span>];</span><br><span class="line">$error=$fileInfo[<span class="string">'error'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>($error==UPLOAD_ERR_OK)&#123;</span><br><span class="line">  <span class="comment">//将临时文件移动到指定目录,并重命名</span></span><br><span class="line">  <span class="keyword">if</span>(move_uploaded_file($tmp_name, <span class="string">"upload/"</span>.$filename))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'文件'</span>.$filename.<span class="string">'上传成功'</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'上传失败'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="comment">//匹配错误信息</span></span><br><span class="line">  <span class="keyword">switch</span>($error)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">'文件大小超过了upload_max_filesize的最大值（默认2M）'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">'文件大小超过了html表单中设置的max_file_size的值'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">'文件没有上传完整'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">'没有文件被上传'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">'找不到临时文件夹'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">'文件写入失败'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">'上传的文件被php扩展程序中断'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//以下方法也可实现,返回布尔值</span></span><br><span class="line"><span class="comment">//copy($tmp_name, "upload/".$filename);</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> 出错调试：<br> 使用 <code>print_r($FILES)</code> 输出 <code>$_FILES</code> 变量    :</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    <span class="comment">//“选择文件”按钮的name</span></span><br><span class="line">    [uploadFile] =&gt; <span class="keyword">Array</span></span><br><span class="line">        (</span><br><span class="line">            <span class="comment">//上传的文件名</span></span><br><span class="line">            [name] =&gt; banner.jpg</span><br><span class="line">            <span class="comment">//上传文件的MIME类型</span></span><br><span class="line">            [type] =&gt; image/jpeg</span><br><span class="line">            <span class="comment">//上传到服务器上的临时文件名</span></span><br><span class="line">            [tmp_name] =&gt; C:\Users\Administrator\AppData\Local\Temp\phpF0EC.tmp</span><br><span class="line">            <span class="comment">//错误号</span></span><br><span class="line">            [error] =&gt; <span class="number">0</span></span><br><span class="line">            <span class="comment">//文件大小</span></span><br><span class="line">            [size] =&gt; <span class="number">131918</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><strong>error</strong> 报错信息：</p>
+<ul>
+<li>0：上传成功</li>
+<li>1：文件大小超过了upload_max_filesize的最大值（默认2M）</li>
+<li>2：文件大小超过了html表单中设置的max_file_size的值</li>
+<li>3：文件没有上传完整</li>
+<li>4：没有文件被上传</li>
+<li>6：找不到临时文件夹</li>
+<li>7：文件写入失败</li>
+<li>8：上传的文件被php扩展程序中断</li>
+</ul>
+<p>客户端可使用的限制配置：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--通过表单隐藏域限制上传文件的最大值--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'hidden'</span> <span class="attr">name</span> =<span class="string">'MAX_FILE_SIZE'</span> <span class="attr">value</span>= <span class="string">'字节数'</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--通过accept属性限制上传文件类型--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'file'</span> <span class="attr">name</span> =<span class="string">'uploadFile'</span> <span class="attr">accept</span>= <span class="string">'MIME类型'</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><span style="color: #CC0033;font-weight: blod;">注意：</span>客户端所做的限制并不安全，需要在服务器端再作限制</p>
+</blockquote>
+<h3 id="1-2-服务器端配置"><a href="#1-2-服务器端配置" class="headerlink" title="1.2 服务器端配置"></a>1.2 服务器端配置</h3><p>服务器的配置文件在php安装目录下的 <strong>php.ini</strong> 中。</p>
+<p>有关文件上传的配置：</p>
+<ul>
+<li><strong>file_uploads = On</strong> ，支持http上传</li>
+<li><strong>upload_tmp_dir =</strong>  ，临时文件的保存目录</li>
+<li><strong>upload_max_filesize = 2M</strong> ，允许上传文件的最大大小</li>
+<li><strong>max_file_uploads = 20</strong> ，每次允许上传的最大文件个数</li>
+<li><strong>post_max_size = 8M</strong> ，post方式发送数据的最大值</li>
+</ul>
+<p>扩展配置：</p>
+<ul>
+<li><strong>max_execution_time = -1</strong> 设置脚本被解析器终止之前允许的最大执行时间，单位为秒</li>
+<li><strong>max_input_time = 60</strong> 脚本解析输入数据允许的最大时间</li>
+<li><strong>memory_limit = 128M</strong> 最大单线程的独立内存使用量</li>
+</ul>
+<p>修改 <strong>doUploadAction.php</strong> ，做一些限制：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"content-type:text/html;charset=utf-8"</span>);</span><br><span class="line"><span class="comment">//$_FILES: 文件上传变量</span></span><br><span class="line">$fileInfo=$_FILES[<span class="string">'uploadFile'</span>];</span><br><span class="line">$maxSize=<span class="number">2097152</span>;<span class="comment">//允许的最大值，2M</span></span><br><span class="line">$allowExt=<span class="keyword">array</span>(<span class="string">'jpg'</span>,<span class="string">'jpeg'</span>,<span class="string">'png'</span>,<span class="string">'bmp'</span>,<span class="string">'gif'</span>);<span class="comment">//允许的扩展名</span></span><br><span class="line"><span class="keyword">if</span>($fileInfo[<span class="string">'error'</span>]==<span class="number">0</span>)&#123;</span><br><span class="line">  <span class="comment">//判断文件大小是否符合条件</span></span><br><span class="line">  <span class="keyword">if</span>($fileInfo[<span class="string">'size'</span>]&gt;$maxSize)&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">'上传文件大小过大'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//允许的扩展名</span></span><br><span class="line">  $ext=pathinfo($fileInfo[<span class="string">'name'</span>],PATHINFO_EXTENSION);</span><br><span class="line">  <span class="comment">//或者$ext=strtolower(end(explode('.',$fileInfo['name'])));</span></span><br><span class="line">  <span class="comment">//判断文件类型是否合法</span></span><br><span class="line">  <span class="keyword">if</span>(!in_array($ext,$allowExt))&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">'非法文件类型'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//判断是否通过http post方式上传</span></span><br><span class="line">  <span class="comment">//move_uploaded_file()函数只能对通过http post方式上传的文件有效</span></span><br><span class="line">  <span class="comment">//以下方法也可实现,返回布尔值</span></span><br><span class="line">  <span class="comment">//copy($tmp_name, "upload/".$filename);</span></span><br><span class="line">  <span class="keyword">if</span>(!is_uploaded_file($fileInfo[<span class="string">'tmp_name'</span>]))&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">'文件不是通过http post上传'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//检测是否是真实的图片</span></span><br><span class="line">  $flag=<span class="keyword">true</span>;</span><br><span class="line">  <span class="keyword">if</span>($flag)&#123;</span><br><span class="line">    <span class="keyword">if</span>(!getimagesize($fileInfo[<span class="string">'tmp_name'</span>]))&#123;</span><br><span class="line">      <span class="keyword">exit</span>(<span class="string">'不是真实的图片类型'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  $path=<span class="string">'upload'</span>;</span><br><span class="line">  <span class="comment">//若没有路径则新建目录</span></span><br><span class="line">  <span class="keyword">if</span>(!file_exists($path))&#123;</span><br><span class="line">    mkdir($path,<span class="number">0777</span>,<span class="keyword">true</span>);</span><br><span class="line">    chmod($path,<span class="number">0777</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//防止文件重名</span></span><br><span class="line">  $uniName=md5(uniqid(microtime(<span class="keyword">true</span>),<span class="keyword">true</span>)).<span class="string">'.'</span>.$ext;</span><br><span class="line">  $destination=$path.<span class="string">'/'</span>.$uniName;</span><br><span class="line">  <span class="keyword">if</span>(move_uploaded_file($fileInfo[<span class="string">'tmp_name'</span>],$destination))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'上传成功'</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'上传失败'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="comment">//匹配错误信息</span></span><br><span class="line">  <span class="keyword">switch</span>($fileInfo[<span class="string">'error'</span>])&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">'文件大小超过了upload_max_filesize的最大值（默认2M）'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">'文件大小超过了html表单中设置的max_file_size的值'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">'文件没有上传完整'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">'没有文件被上传'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">'找不到临时文件夹'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">'文件写入失败'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">'上传的文件被php扩展程序中断'</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>getimagesize()方法用以判断是否是真实的图片格式，真实图片的输出示例如下：</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//getimagesize($filename)  ，得到指定图片的信息，如果是图片则返回数组</span></span><br><span class="line"><span class="comment">//如果不是则返回false</span></span><br><span class="line">$filename=<span class="string">'banner.jpg'</span>;</span><br><span class="line">var_dump(getimagesize($filename));</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回示例：</span></span><br><span class="line"><span class="comment">//array(7) &#123;</span></span><br><span class="line"><span class="comment">//  [0]=&gt;</span></span><br><span class="line"><span class="comment">//  int(1200)</span></span><br><span class="line"><span class="comment">//  [1]=&gt;</span></span><br><span class="line"><span class="comment">//  int(480)</span></span><br><span class="line"><span class="comment">//  [2]=&gt;</span></span><br><span class="line"><span class="comment">//  int(2)</span></span><br><span class="line"><span class="comment">//  [3]=&gt;</span></span><br><span class="line"><span class="comment">//  string(25) "width="1200" height="480""</span></span><br><span class="line"><span class="comment">//  ["bits"]=&gt;</span></span><br><span class="line"><span class="comment">//  int(8)</span></span><br><span class="line"><span class="comment">//  ["channels"]=&gt;</span></span><br><span class="line"><span class="comment">//  int(3)</span></span><br><span class="line"><span class="comment">//  ["mime"]=&gt;</span></span><br><span class="line"><span class="comment">//  string(10) "image/jpeg"</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-上传函数的封装"><a href="#2-上传函数的封装" class="headerlink" title="2. 上传函数的封装"></a>2. 上传函数的封装</h2><p>编写 <strong>upload.func.php</strong> ：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"content-type:text/html;charset=utf-8"</span>);</span><br><span class="line">$fileInfo=$_FILES[<span class="string">'uploadFile'</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">uploadFile</span><span class="params">($fileInfo,$allowedExt=array<span class="params">(<span class="string">'jpeg'</span>,<span class="string">'jpg'</span>,<span class="string">'png'</span>,<span class="string">'gif'</span>)</span>,</span><br><span class="line">                    $maxSize=<span class="number">2097152</span>,$path=<span class="string">'upload'</span>,$flag=true)</span></span>&#123;</span><br><span class="line">  <span class="comment">//判断错误号</span></span><br><span class="line">  <span class="keyword">if</span>($fileInfo[<span class="string">'error'</span>]&gt;<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="comment">//匹配错误信息</span></span><br><span class="line">    <span class="keyword">switch</span>($fileInfo[<span class="string">'error'</span>])&#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        $mes= <span class="string">'文件大小超过了upload_max_filesize的最大值（默认2M）'</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        $mes= <span class="string">'文件大小超过了html表单中设置的max_file_size的值'</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        $mes= <span class="string">'文件没有上传完整'</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">        $mes= <span class="string">'没有文件被上传'</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        $mes= <span class="string">'找不到临时文件夹'</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">        $mes= <span class="string">'文件写入失败'</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">        $mes= <span class="string">'上传的文件被php扩展程序中断'</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">exit</span>($mes);</span><br><span class="line">  &#125;</span><br><span class="line">  $ext=pathinfo($fileInfo[<span class="string">'name'</span>],PATHINFO_EXTENSION);</span><br><span class="line">  <span class="keyword">if</span>(!is_array($allowedExt))&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">'扩展名应该是一个数组'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//检测上传文件的类型是否合法</span></span><br><span class="line">  <span class="keyword">if</span>(!in_array($ext,$allowedExt))&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">'非法文件类型'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//检测上传文件大小是否合法</span></span><br><span class="line">  <span class="keyword">if</span>($fileInfo[<span class="string">'size'</span>]&gt;$maxSize)&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">'上传文件过大'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//判断是否通过http post方式上传</span></span><br><span class="line">  <span class="comment">//move_uploaded_file()函数只能对通过http post方式上传的文件有效</span></span><br><span class="line">  <span class="comment">//以下方法也可实现,返回布尔值</span></span><br><span class="line">  <span class="comment">//copy($tmp_name, "upload/".$filename);</span></span><br><span class="line">  <span class="keyword">if</span>(!is_uploaded_file($fileInfo[<span class="string">'tmp_name'</span>]))&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">'文件不是通过http post上传'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//检测是否是真实的图片</span></span><br><span class="line">  <span class="keyword">if</span>($flag)&#123;</span><br><span class="line">    <span class="keyword">if</span>(!getimagesize($fileInfo[<span class="string">'tmp_name'</span>]))&#123;</span><br><span class="line">      <span class="keyword">exit</span>(<span class="string">'不是真实的图片类型'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//若没有路径则新建目录</span></span><br><span class="line">  <span class="keyword">if</span>(!file_exists($path))&#123;</span><br><span class="line">    mkdir($path,<span class="number">0777</span>,<span class="keyword">true</span>);</span><br><span class="line">    chmod($path,<span class="number">0777</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//防止文件重名</span></span><br><span class="line">  $uniName=md5(uniqid(microtime(<span class="keyword">true</span>),<span class="keyword">true</span>)).<span class="string">'.'</span>.$ext;</span><br><span class="line">  $destination=$path.<span class="string">'/'</span>.$uniName;</span><br><span class="line">  <span class="comment">//移动文件</span></span><br><span class="line">  <span class="keyword">if</span>(!@move_uploaded_file($fileInfo[<span class="string">'tmp_name'</span>],$destination))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'上传失败'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">array</span>(</span><br><span class="line">    <span class="string">'newName'</span>=&gt;$destination,</span><br><span class="line">    <span class="string">'type'</span>=&gt;$fileInfo[<span class="string">'type'</span>],</span><br><span class="line">    <span class="string">'size'</span>=&gt;$fileInfo[<span class="string">'size'</span>]</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方法的调用：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include_once</span> <span class="string">'../lib/upload.func.php'</span>;</span><br><span class="line">$fileInfo=$_FILES[<span class="string">'uploadFile'</span>];</span><br><span class="line">$newName=uploadFile($fileInfo);</span><br><span class="line">print_r($newName);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/posts/article/20160518-wamp环境快速搭建.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">wamp环境快速搭建</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="PHP实现文件上传与下载功能" data-title="PHP实现文件上传与下载功能" data-url="http://mecoepcoo.github.io/posts/article/20160519-PHP实现文件上传与下载功能.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"tianzhenblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Tianzhen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?80c81272401291aa717e86f05952c919";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  </div>
+</body>
+</html>
