@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Windows平台Github基础使用说明 | Tianzhen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了Windows环境下github的基础使用方法，本文测试环境为Windows10。
+[TOC]
+一、什么是Github？1. 初识GitGit是一个开源的Linux下的分布式版本控制系统，他的作者是Linux系统的开发者Linus Torvalds。现在，Git已经能够在Windows下使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows平台Github基础使用说明">
+<meta property="og:url" content="http://mecoepcoo.github.io/posts/article/20160527-Windows平台Github基础使用说明.html">
+<meta property="og:site_name" content="Tianzhen">
+<meta property="og:description" content="本文介绍了Windows环境下github的基础使用方法，本文测试环境为Windows10。
+[TOC]
+一、什么是Github？1. 初识GitGit是一个开源的Linux下的分布式版本控制系统，他的作者是Linux系统的开发者Linus Torvalds。现在，Git已经能够在Windows下使用。">
+<meta property="og:image" content="http://o7pnzkval.bkt.clouddn.com/16-5-27/57475901.jpg">
+<meta property="og:image" content="http://o7pnzkval.bkt.clouddn.com/16-5-27/10249169.jpg">
+<meta property="og:image" content="http://o7pnzkval.bkt.clouddn.com/16-5-27/57671258.jpg">
+<meta property="og:image" content="http://o7pnzkval.bkt.clouddn.com/16-5-27/93629604.jpg">
+<meta property="og:image" content="http://o7pnzkval.bkt.clouddn.com/16-5-27/78744407.jpg">
+<meta property="og:image" content="http://o7pnzkval.bkt.clouddn.com/16-5-27/86751668.jpg">
+<meta property="og:image" content="http://o7pnzkval.bkt.clouddn.com/16-5-27/84161682.jpg">
+<meta property="og:image" content="http://o7pnzkval.bkt.clouddn.com/16-5-27/51189265.jpg">
+<meta property="og:image" content="http://o7pnzkval.bkt.clouddn.com/16-5-27/23330228.jpg">
+<meta property="og:image" content="http://o7pnzkval.bkt.clouddn.com/16-5-27/82829927.jpg">
+<meta property="og:image" content="http://o7pnzkval.bkt.clouddn.com/16-5-27/14350810.jpg">
+<meta property="og:updated_time" content="2016-05-27T15:31:31.609Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows平台Github基础使用说明">
+<meta name="twitter:description" content="本文介绍了Windows环境下github的基础使用方法，本文测试环境为Windows10。
+[TOC]
+一、什么是Github？1. 初识GitGit是一个开源的Linux下的分布式版本控制系统，他的作者是Linux系统的开发者Linus Torvalds。现在，Git已经能够在Windows下使用。">
+<meta name="twitter:image" content="http://o7pnzkval.bkt.clouddn.com/16-5-27/57475901.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Tianzhen" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Tianzhen</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">心者，栖神之舍；神者，知识之本；思者，神识之妙用也。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/技术/">技术宅</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/mecoepcoo" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/mecoepcoo/home" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/php/" style="font-size: 16.67px;">php</a> <a href="/tags/thinkphp/" style="font-size: 13.33px;">thinkphp</a> <a href="/tags/兼容性/" style="font-size: 10px;">兼容性</a> <a href="/tags/前端/" style="font-size: 13.33px;">前端</a> <a href="/tags/后台/" style="font-size: 16.67px;">后台</a> <a href="/tags/技术/" style="font-size: 20px;">技术</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">心者，栖神之舍；神者，知识之本；思者，神识之妙用也。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Tianzhen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Tianzhen</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">心者，栖神之舍；神者，知识之本；思者，神识之妙用也。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/技术/">技术宅</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/mecoepcoo" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/mecoepcoo/home" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Windows平台Github基础使用说明" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/article/20160527-Windows平台Github基础使用说明.html" class="article-date">
+  	<time datetime="2016-05-27T10:14:57.000Z" itemprop="datePublished">May 27, 2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Windows平台Github基础使用说明
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/thinkphp/">thinkphp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后台/">后台</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	  <!-- Table of Contents -->
+
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、什么是Github？"><span class="toc-text">一、什么是Github？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-初识Git"><span class="toc-text">1. 初识Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-集中式和分布式"><span class="toc-text">2. 集中式和分布式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Github"><span class="toc-text">3. Github</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、使用Github-For-Windows"><span class="toc-text">二、使用Github For Windows</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装git"><span class="toc-text">1. 安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-注册帐户"><span class="toc-text">2. 注册帐户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-新建仓库"><span class="toc-text">3. 新建仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-提交代码"><span class="toc-text">4. 提交代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-创建分支"><span class="toc-text">5. 创建分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-克隆仓库"><span class="toc-text">6. 克隆仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-合并分支"><span class="toc-text">7. 合并分支</span></a></li></ol></li></ol>
+</div>
+
+        <p>本文介绍了Windows环境下github的基础使用方法，本文测试环境为Windows10。</p>
+<p>[TOC]</p>
+<h1 id="一、什么是Github？"><a href="#一、什么是Github？" class="headerlink" title="一、什么是Github？"></a>一、什么是Github？</h1><h2 id="1-初识Git"><a href="#1-初识Git" class="headerlink" title="1. 初识Git"></a>1. 初识Git</h2><p>Git是一个开源的Linux下的分布式版本控制系统，他的作者是Linux系统的开发者Linus Torvalds。现在，Git已经能够在Windows下使用。</p>
+<a id="more"></a>
+<p>什么是版本控制系统呢？</p>
+<p>想象一下这样的场景：</p>
+<p>有一天你统计了一份客户名单，保存为 <strong>客户名单.doc</strong> ，你的的同事想要补充一下这个名单，于是你通过QQ把文件发给同事，同事直接修改完之后又发回给你，这时你不知道同事有没有不小心删掉或改错了原本你做的东西，所以你把同事发给你的文件另存为 <strong>客户名单2.doc</strong> ，然后等有空了再一一检查合并，反复传递之后，你的文件夹里有 <strong>客户名单1-6</strong> 这么多个文件，当你的领导跟你要最终版本时，你还要一个一个去翻找最新改动的那个。</p>
+<p>是不是很麻烦呢？</p>
+<p><em>于是，版本控制系统诞生了，他给你的每个文件都留下一个独一无二的版本号，并按照修改日期排序，还附带了是谁发布了这个文件，写明了备注，这就是Git的雏形。</em></p>
+<h2 id="2-集中式和分布式"><a href="#2-集中式和分布式" class="headerlink" title="2. 集中式和分布式"></a>2. 集中式和分布式</h2><p>常用的集中式版本控制系统有 <strong>CVS</strong> 和 <strong>SVN</strong> ，而Git是分布式版本控制系统。</p>
+<p>集中式版本控制系统中的文件存放在中央服务器，当多人同时工作时，每人先各自从中央服务器获得最新的版本，修改完自己的部分之后再上传到中央服务器，这样的管理方式必须联网才能有效完成，如果程序员的网速比较慢，将花费大量的时间在数据传输上。</p>
+<p>集中式版本控制系统示意图：</p>
+<p><img src="http://o7pnzkval.bkt.clouddn.com/16-5-27/57475901.jpg" alt="集中式示意图"></p>
+<p>分布式版本控制系统弥补了这个缺陷，他把文件存放在每个人的电脑中，不需要中央服务器，如果A和B都修改了各自的文件，他们只需要把有修改的地方相互发送给对方就可以了，大大提高了文件传输的效率。在实际使用中，分布式版本控制系统一般也使用一个服务器用以所有的修改。</p>
+<p>分布式版本控制系统示意图：</p>
+<p><img src="http://o7pnzkval.bkt.clouddn.com/16-5-27/10249169.jpg" alt="分布式示意图"></p>
+<h2 id="3-Github"><a href="#3-Github" class="headerlink" title="3. Github"></a>3. Github</h2><p>Github是一个开源代码托管库和在线版本控制系统，开发者可以把自己的开源代码免费托管在Github上，并使用Github提供的git功能，同时，Github也允许开发者免费发布一个静态站点。</p>
+<p>托管在Github上的最热门的开源项目有：</p>
+<ul>
+<li>Bootstrap</li>
+<li>jquery</li>
+<li>node.js</li>
+<li>rails</li>
+<li>jekyll</li>
+<li>Hexo</li>
+<li>……</li>
+</ul>
+<h1 id="二、使用Github-For-Windows"><a href="#二、使用Github-For-Windows" class="headerlink" title="二、使用Github For Windows"></a>二、使用Github For Windows</h1><p>以下同步介绍Github桌面版的使用方法。</p>
+<h2 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1. 安装git"></a>1. 安装git</h2><p>访问<a href="https://desktop.github.com/" target="_blank" rel="external">https://desktop.github.com/</a> </p>
+<p>点击<span style="color: #126eb7;">蓝色</span>的“Download Github Desktop”按钮下载github桌面版。安装的过程可能特别缓慢，如果没有报错提示，那就等他自己安装完成，不要关闭窗口。</p>
+<h2 id="2-注册帐户"><a href="#2-注册帐户" class="headerlink" title="2. 注册帐户"></a>2. 注册帐户</h2><p>登录github官网<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a></p>
+<p>按提示注册帐户：</p>
+<p><img src="http://o7pnzkval.bkt.clouddn.com/16-5-27/57671258.jpg" alt="注册"></p>
+<h2 id="3-新建仓库"><a href="#3-新建仓库" class="headerlink" title="3. 新建仓库"></a>3. 新建仓库</h2><p>安装完github desktop后会得到如下两个图标：</p>
+<p><img src="http://o7pnzkval.bkt.clouddn.com/16-5-27/93629604.jpg" alt="图标"></p>
+<p>打开Github（左边），填写用户名和密码登录：</p>
+<p><img src="http://o7pnzkval.bkt.clouddn.com/16-5-27/78744407.jpg" alt="登录"></p>
+<p>选择左上角的加号，在“creat（创建）”中填写仓库名和路径，新建仓库：</p>
+<p><img src="http://o7pnzkval.bkt.clouddn.com/16-5-27/86751668.jpg" alt="仓库"></p>
+<p>点击左上角的“public（发布）”，把新建的仓库上传到github：</p>
+<p><img src="http://o7pnzkval.bkt.clouddn.com/16-5-27/84161682.jpg" alt="发布"></p>
+<h2 id="4-提交代码"><a href="#4-提交代码" class="headerlink" title="4. 提交代码"></a>4. 提交代码</h2><p>将要提交的程序存放到本地仓库对应的目录下，随后会在github桌面版中看到有修改的部分，写好总结（summary）和描述（description），点击commit后，点击右上角的sync（同步）来提交：</p>
+<p><img src="http://o7pnzkval.bkt.clouddn.com/16-5-27/51189265.jpg" alt="提交"></p>
+<h2 id="5-创建分支"><a href="#5-创建分支" class="headerlink" title="5. 创建分支"></a>5. 创建分支</h2><p>在分支上工作可以让你的编辑不影响到其他分支的代码，适用于多人同时工作的场景。点击分支图标，填写新分支名称后确认，然后点击右上角的sync来提交至github云端：</p>
+<p><img src="http://o7pnzkval.bkt.clouddn.com/16-5-27/23330228.jpg" alt="分支"></p>
+<h2 id="6-克隆仓库"><a href="#6-克隆仓库" class="headerlink" title="6. 克隆仓库"></a>6. 克隆仓库</h2><p>克隆操作可以把仓库从github下载至本地：</p>
+<p><img src="http://o7pnzkval.bkt.clouddn.com/16-5-27/82829927.jpg" alt="克隆"></p>
+<h2 id="7-合并分支"><a href="#7-合并分支" class="headerlink" title="7. 合并分支"></a>7. 合并分支</h2><p>如下图发起合并请求，随后在github网页版中处理请求，本文不再赘述：</p>
+<p><img src="http://o7pnzkval.bkt.clouddn.com/16-5-27/14350810.jpg" alt="合并"></p>
+<blockquote>
+<p>By 天真</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/posts/article/20160525-js实现鼠标拖拽效果.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js实现鼠标拖拽效果</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Windows平台Github基础使用说明" data-title="Windows平台Github基础使用说明" data-url="http://mecoepcoo.github.io/posts/article/20160527-Windows平台Github基础使用说明.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"tianzhenblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Tianzhen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?80c81272401291aa717e86f05952c919";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  </div>
+</body>
+</html>
