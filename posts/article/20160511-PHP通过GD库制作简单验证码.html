@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>PHP通过GD库制作简单验证码 | Tianzhen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PHP通过GD库制作简单验证码该项目的测试开发环境为win10 + Apache2.4.18 + PHP5.5.30
+  <meta name="description" content="该项目的测试开发环境为win10 + Apache2.4.18 + PHP5.5.30
 [TOC]
 1. 文件目录站点根目录为site2，文件结构如下：
 site2
@@ -18,12 +18,14 @@ site2/admin/getVerify.php
 site2/lib/image.func.php
 
 
-site2/lib/string.func.ph">
+site2/lib/string.func.php
+
+site2/fonts/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP通过GD库制作简单验证码">
 <meta property="og:url" content="http://mecoepcoo.github.io/posts/article/20160511-PHP通过GD库制作简单验证码.html">
 <meta property="og:site_name" content="Tianzhen">
-<meta property="og:description" content="PHP通过GD库制作简单验证码该项目的测试开发环境为win10 + Apache2.4.18 + PHP5.5.30
+<meta property="og:description" content="该项目的测试开发环境为win10 + Apache2.4.18 + PHP5.5.30
 [TOC]
 1. 文件目录站点根目录为site2，文件结构如下：
 site2
@@ -35,11 +37,13 @@ site2/admin/getVerify.php
 site2/lib/image.func.php
 
 
-site2/lib/string.func.ph">
-<meta property="og:updated_time" content="2016-05-19T04:16:31.436Z">
+site2/lib/string.func.php
+
+site2/fonts/">
+<meta property="og:updated_time" content="2016-05-29T05:08:42.128Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP通过GD库制作简单验证码">
-<meta name="twitter:description" content="PHP通过GD库制作简单验证码该项目的测试开发环境为win10 + Apache2.4.18 + PHP5.5.30
+<meta name="twitter:description" content="该项目的测试开发环境为win10 + Apache2.4.18 + PHP5.5.30
 [TOC]
 1. 文件目录站点根目录为site2，文件结构如下：
 site2
@@ -51,7 +55,9 @@ site2/admin/getVerify.php
 site2/lib/image.func.php
 
 
-site2/lib/string.func.ph">
+site2/lib/string.func.php
+
+site2/fonts/">
   
     <link rel="alternative" href="/atom.xml" title="Tianzhen" type="application/atom+xml">
   
@@ -249,10 +255,10 @@ site2/lib/string.func.ph">
 
 <div id="toc" class="toc-article">
 <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PHP通过GD库制作简单验证码"><span class="toc-text">PHP通过GD库制作简单验证码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-文件目录"><span class="toc-text">1. 文件目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-生成字符"><span class="toc-text">2. 生成字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-生成验证码图像"><span class="toc-text">3. 生成验证码图像</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-生成图像"><span class="toc-text">3.1 生成图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-检查图像"><span class="toc-text">3.2 检查图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-封装方法"><span class="toc-text">3.3 封装方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-调用验证码方法"><span class="toc-text">3.4 调用验证码方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-前台显示"><span class="toc-text">4. 前台显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-验证"><span class="toc-text">5. 验证</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-文件目录"><span class="toc-text">1. 文件目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-生成字符"><span class="toc-text">2. 生成字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-生成验证码图像"><span class="toc-text">3. 生成验证码图像</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-生成图像"><span class="toc-text">3.1 生成图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-检查图像"><span class="toc-text">3.2 检查图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-封装方法"><span class="toc-text">3.3 封装方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-调用验证码方法"><span class="toc-text">3.4 调用验证码方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-前台显示"><span class="toc-text">4. 前台显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-验证"><span class="toc-text">5. 验证</span></a></li></ol>
 </div>
 
-        <h1 id="PHP通过GD库制作简单验证码"><a href="#PHP通过GD库制作简单验证码" class="headerlink" title="PHP通过GD库制作简单验证码"></a>PHP通过GD库制作简单验证码</h1><p><strong>该项目的测试开发环境为win10 + Apache2.4.18 + PHP5.5.30</strong></p>
+        <p><strong>该项目的测试开发环境为win10 + Apache2.4.18 + PHP5.5.30</strong></p>
 <p>[TOC]</p>
 <h2 id="1-文件目录"><a href="#1-文件目录" class="headerlink" title="1. 文件目录"></a>1. 文件目录</h2><p>站点根目录为site2，文件结构如下：</p>
 <p>site2</p>
@@ -278,6 +284,7 @@ site2/lib/string.func.ph">
 <h3 id="3-2-检查图像"><a href="#3-2-检查图像" class="headerlink" title="3.2 检查图像"></a>3.2 检查图像</h3><p>在浏览器访问/lib/image.func.php , 观察图像验证码是否显示成功。</p>
 <blockquote>
 <p>注意：如果图形验证码无法显示，优先检查字体文件是否存放正确，文件名是否正确</p>
+<p>​           检查 <code>header ( &quot;content-type:image/gif&quot; );</code> 中是否有多余的空格</p>
 </blockquote>
 <h3 id="3-3-封装方法"><a href="#3-3-封装方法" class="headerlink" title="3.3 封装方法"></a>3.3 封装方法</h3><p>添加可选参数，将生成验证码图像程序封装成 <strong>verifyImage()</strong> 方法：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">[PHP]</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">verifyImage</span><span class="params">($type=<span class="number">1</span>, $length=<span class="number">4</span>, $pixel=<span class="number">30</span>, $line=<span class="number">5</span>, $sess_name=<span class="string">"verify"</span>)</span></span>&#123;</span><br><span class="line">  <span class="comment">//启用session</span></span><br><span class="line">  session_start();</span><br><span class="line">  <span class="comment">//创建画布</span></span><br><span class="line">  $width = <span class="number">80</span>;</span><br><span class="line">  $height = <span class="number">28</span>;</span><br><span class="line"><span class="comment">//建立宽为width，高为height的画布</span></span><br><span class="line">  $image = imagecreatetruecolor ( $width, $height );</span><br><span class="line"><span class="comment">//设定一些颜色</span></span><br><span class="line">  $white = imagecolorallocate ( $image, <span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span> );</span><br><span class="line">  $black = imagecolorallocate ( $image, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span> );</span><br><span class="line"><span class="comment">//用填充矩形填充画布</span></span><br><span class="line">  imagefilledrectangle ( $image, <span class="number">1</span>, <span class="number">1</span>, $width - <span class="number">2</span>, $height - <span class="number">2</span>, $white );</span><br><span class="line"><span class="comment">//调用创建字符串方法并传递$type,$length参数</span></span><br><span class="line">  $chars = buildRandomString ( $type, $length );</span><br><span class="line"><span class="comment">//把字符串存入SESSION</span></span><br><span class="line">  $_SESSION [$sess_name] = $chars;</span><br><span class="line"><span class="comment">//设置一些字体</span></span><br><span class="line">  $fontfiles = <span class="keyword">array</span> (<span class="string">"STXINGKA.TTF"</span> );</span><br><span class="line"><span class="comment">//产生长度为length的字符图像</span></span><br><span class="line">  <span class="keyword">for</span>($i = <span class="number">0</span>; $i &lt; $length; $i ++) &#123;</span><br><span class="line">    $size = mt_rand ( <span class="number">14</span>, <span class="number">18</span> );</span><br><span class="line">    <span class="comment">//角度-15到15</span></span><br><span class="line">    $angle = mt_rand ( - <span class="number">15</span>, <span class="number">15</span> );</span><br><span class="line">    <span class="comment">//字符显示的位置</span></span><br><span class="line">    $x = <span class="number">5</span> + $i * $size;</span><br><span class="line">    $y = mt_rand ( <span class="number">20</span>, <span class="number">26</span> );</span><br><span class="line">    <span class="comment">//从设置的字体文件中随机取一个字体</span></span><br><span class="line">    $fontfile = <span class="string">"../fonts/"</span> . $fontfiles [mt_rand ( <span class="number">0</span>, count ( $fontfiles ) - <span class="number">1</span> )];</span><br><span class="line">    <span class="comment">//随机取一个颜色</span></span><br><span class="line">    $color = imagecolorallocate ( $image, mt_rand ( <span class="number">50</span>, <span class="number">90</span> ), mt_rand ( <span class="number">80</span>, <span class="number">200</span> ), mt_rand ( <span class="number">90</span>, <span class="number">180</span> ) );</span><br><span class="line">    <span class="comment">//截取，从i开始取，取1位</span></span><br><span class="line">    $text = substr ( $chars, $i, <span class="number">1</span> );</span><br><span class="line">    <span class="comment">//将TTF文字写到图中</span></span><br><span class="line">    imagettftext ( $image, $size, $angle, $x, $y, $color, $fontfile, $text );</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>($pixel)&#123;</span><br><span class="line">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;$pixel;$i++)&#123;</span><br><span class="line">      imagesetpixel($image, mt_rand(<span class="number">0</span>, $width<span class="number">-1</span>),mt_rand(<span class="number">0</span>, $height<span class="number">-1</span>),$black);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>($line)&#123;</span><br><span class="line">    <span class="keyword">for</span>($i=<span class="number">1</span>;$i&lt;$line;$i++)&#123;</span><br><span class="line">      $color = imagecolorallocate ( $image, mt_rand ( <span class="number">50</span>, <span class="number">90</span> ), mt_rand ( <span class="number">80</span>, <span class="number">200</span> ), mt_rand ( <span class="number">90</span>, <span class="number">180</span> ) );</span><br><span class="line">      imageline($image, mt_rand(<span class="number">0</span>,$width<span class="number">-1</span>), mt_rand(<span class="number">0</span>,$height<span class="number">-1</span>), mt_rand(<span class="number">0</span>,$width<span class="number">-1</span>), mt_rand(<span class="number">0</span>,$height<span class="number">-1</span>),$color);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//规定输出格式</span></span><br><span class="line">  header ( <span class="string">"content-type:image/gif"</span> );</span><br><span class="line"><span class="comment">//建立gif图形</span></span><br><span class="line">  imagegif ( $image );</span><br><span class="line"><span class="comment">//销毁图像</span></span><br><span class="line">  imagedestroy ( $image );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
